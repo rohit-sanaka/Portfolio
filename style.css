@@ -1,0 +1,231 @@
+* , * ::before ,*::after{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+}
+
+/* -------------------- */
+/* -------- Nav ------- */
+/* -------------------- */
+header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 2em;
+}
+
+.nav-bar{
+  font-family:'poppins';
+  font-weight:lighter;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+
+.nav-bar li{
+  width: 6em;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+}
+.nav-bar li::before{
+  content: "";
+  left: -1%;
+  position: absolute;
+  background:linear-gradient(90deg,white 0%,#999 100%);
+  width: 0;
+  height: 100%;
+  transition: all 0.2s ease-out;
+  z-index: -1;
+}
+
+
+.nav-bar li:hover::before{
+  width: 100%;
+  height: 100%;
+}
+
+.nav-bar .nav-link a{
+  text-decoration: none;
+  color:black;
+}
+
+
+.menu-icon{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 35px;
+  border-radius: 3px;
+}
+.hamburger{
+  background:black;
+  width: 30px;
+  height: 5px;
+  border-radius: 5px;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+}
+.hamburger::before,
+.hamburger::after{
+  content:"";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background:black;
+  transform: translateY(-10px);
+  border-radius: 5px;
+  transition: all 0.4s ease-in-out;
+}
+.hamburger::after
+{
+  transform: translateY(10px);
+}
+
+@media (width < 600px ) {
+  header{
+    justify-content: end;
+    gap:1.5rem;
+    /* outline: green solid 3px; */
+  }
+  .menu-icon{
+    display: flex;
+    cursor: pointer;
+  }
+  .open .hamburger{
+    /* transform: translateX(-px); */
+    background: transparent;
+    box-shadow: none;
+    transition: all 0.5s ease;
+  }
+  .open .hamburger::before{
+    transform: rotate(45deg);
+  }
+  .open .hamburger::after{
+    transform: rotate(-45deg);
+  }
+
+  .nav-bar{
+    font-size: large;
+    flex-direction: column;
+    align-items: center;
+    position:absolute;
+    transform: scale(0);
+    transform-origin: top right;
+    top:4.1rem;
+    right:2rem;
+    gap:1rem;
+    width: 150px;
+    outline: solid black 3px;
+    height: 0;
+    background: black;
+    transition:all 0.2s ease-out;
+    z-index: 1;
+  }
+  .nav-bar li::before{
+    background:linear-gradient(90deg,black 0%,#999 100%);
+  }
+  nav .open{
+    transform: scale(100%);
+    height: 220px;
+    overflow: hidden ;
+  }
+  .nav-bar .nav-link a{
+    color: white;
+    transition: all 0.1s ease-in-out;
+  }
+}
+
+
+
+
+
+/* --------------------- */
+/* -------- Home ------- */
+/* --------------------- */
+.home{
+  text-align:center;
+}
+
+.title{
+  font-family: 'Sacramento','sans-serif';
+  font-size: clamp(3rem,10vw,6rem);
+  word-spacing: 5px;
+  font-weight: 400;
+  margin-top: 1em;
+}
+
+.who{
+  display: flex;
+  justify-content: center;
+  gap:0.25em;
+  font-size: clamp(1.5em,5vw,3rem);
+}
+
+.static-text{
+  margin-left: 0.8em;
+}
+
+.dynamic-text-parent
+{
+  font-weight: bold;
+  color: #333;
+  overflow: hidden;
+  width: var(--element-width);
+  white-space: nowrap;
+  position: relative;
+  border-right: solid 2px #999;
+  animation: typing 3.4s cubic-bezier(0.27, 0.62, 0.03, 1) infinite;
+}
+
+.dynamic-text-parent .d-text{
+  position: absolute;
+  /* margin-left: 0.25em; */
+  left: 0;
+  top: 0;
+}
+
+@keyframes typing {
+  95% ,100%,0%{
+    width:0;
+  }
+
+  25%, 75%{
+    width: var(--element-width);
+  }
+}
+
+.dynamic-text-parent .is-hidden{
+  visibility: hidden;
+}
+
+/* --------------------- */
+/* -------- Work ------- */
+/* --------------------- */
+
+/*=======================================*/
+/* CSS for pure javasctipt typing effect */
+/*=======================================*/
+/* .iam, .typed-text{
+  font-size: 1.2em;
+  padding-left:0.2em;
+}
+
+.typed-text{
+  font-weight: 600;
+}
+
+.cursor{
+  border-right:solid 3px #999;
+  margin-left: 2px;
+}
+
+.hide{
+  border-right:0;
+} */
+/*=======================================*/
+/* CSS for pure javasctipt typing effect */
+/*=======================================*/
