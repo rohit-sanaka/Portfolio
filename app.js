@@ -6,6 +6,7 @@ let menuIcon = document.querySelector(".menu-icon");
 let hamBurger = document.querySelector(".hamburger");
 
 let navBar = document.querySelector(".nav-bar");
+let navLinks = document.querySelectorAll(".nav-link");
 
 function setWidth(index) {
   let currentWidth = textWidth[index].offsetWidth;
@@ -45,6 +46,11 @@ menuIcon.addEventListener("click", () => {
   navBar.classList.toggle("open");
 });
 
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    link.firstElementChild.click();
+  });
+});
 //================================================================//
 //                Pure javascript typing effect                   //
 //================================================================//
